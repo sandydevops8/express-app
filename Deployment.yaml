@@ -16,4 +16,4 @@ spec:
         - name: san-express-app
           image: 'sandydevops8/san-express-app:${GIT_SHA}'
           ports:
-            - containerPort: 80
+            - containerPort: 8080
