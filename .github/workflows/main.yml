@@ -16,8 +16,12 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v4
 
+      - name: Set short SHA
+        id: vars
+        run: echo "sha_short=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_OUTPUT
+
       - name: Say Hello
-        run: echo "Hello, world!"
+        run: echo "Hello, world! sha is ${{ steps.vars.outputs.sha_short}}"
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
