@@ -60,8 +60,11 @@ jobs:
         run: |
           aws eks update-kubeconfig --region $AWS_REGION --name san-test-cluster
 
-      - name: Apply Deployment
-        run: kubectl apply -f Deployment.yaml    
+      - name: Deploy to Kubernetes
+        env:
+          GIT_SHA: ${{ env.GIT_SHA }}
+        run: |
+          envsubst < Deployment.yaml | kubectl apply -f -
+          kubectl apply -f Service.yaml
 
-      - name: Apply service
-        run: kubectl apply -f Service.yaml
+     
