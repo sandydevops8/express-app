@@ -6,8 +6,8 @@ metadata:
     app: san-express-app
 spec:
   ports:
-   - protocol: TCP
-     port: 80
+  - protocol: TCP
+    port: 80
     targetPort: 8080
   selector:
     app: san-express-app
