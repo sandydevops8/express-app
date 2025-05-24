@@ -44,10 +44,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-node-app:${{ steps.vars.outputs.sha_short}} .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/express-app:${{ steps.vars.outputs.sha_short}} .
 
       - name: Push Docker image into Docker Hub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-node-app:${{ steps.vars.outputs.sha_short}}
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/express-app:${{ steps.vars.outputs.sha_short}}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -65,4 +65,3 @@ jobs:
 
       - name: Apply service
         run: kubectl apply -f Service.yaml
-      
