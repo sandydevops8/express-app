@@ -67,5 +67,6 @@ jobs:
           envsubst < Deployment.yaml | kubectl apply -f -
           kubectl apply -f Service.yaml
           kubectl apply -f ingress.yaml
+          kubectl apply -f ingressclass.yaml
 
      
