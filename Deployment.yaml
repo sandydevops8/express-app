@@ -2,18 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: san-express-app
+  labels:
+    app: san-express-app
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app.kubernetes.io/name: san-express-app
+      app: san-express-app
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: san-express-app
+        app: san-express-app
     spec:
       containers:
         - name: san-express-app
-          image: 'sandydevops8/san-express-app:${GIT_SHA}'
+          image: 'sandydevops8/san-express-app:${GIT_SHA}'   # Use your actual app image here
           ports:
             - containerPort: 8080
