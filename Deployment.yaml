@@ -6,11 +6,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: san-express-app
+      app.kubernetes.io/name: san-express-app
   template:
     metadata:
       labels:
-        app: san-express-app
+        app.kubernetes.io/name: san-express-app
     spec:
       containers:
         - name: san-express-app
