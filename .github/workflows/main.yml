@@ -58,7 +58,7 @@ jobs:
 
       - name: Update kubeconfig
         run: |
-          aws eks update-kubeconfig --region $AWS_REGION --name san-test-cluster
+          aws eks update-kubeconfig --region $AWS_REGION --name test-cluster
 
       - name: Deploy to Kubernetes
         env:
